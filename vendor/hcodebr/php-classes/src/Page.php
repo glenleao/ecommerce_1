@@ -7,7 +7,7 @@ use Rain\Tpl;
 class Page {
 
 	private $tpl;
-	private $options =[];
+	private $options = [];
 	private $defaults = [
 		"data"=>[]
 	];
@@ -18,7 +18,7 @@ class Page {
 
 		$config = array(
 			"tpl_dir"       => $_SERVER["DOCUMENT_ROOT"]."/views/",
-			"cache_dir"     => $_SERVER["DOCUMENT-ROOT"]."/views-cache/",
+			"cache_dir"     => $_SERVER["DOCUMENT_ROOT"]."/views-cache/",
 			"debug"         => false // set to false to improve the speed
 		);
 
