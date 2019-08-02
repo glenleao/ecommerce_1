@@ -4,6 +4,8 @@
 
  use \Slim\Slim;
  use \Kgdzt\Page;
+ use \Kgdzt\PageAdmin;
+ use \Kgdzt\Model\User;
 
  $app = new Slim();
 
@@ -17,6 +19,35 @@
     
 
  });
+
+ $app->get('/admin', function() {
+
+ $page = new PageAdmin();
+
+ $page->setTpl("index");
+    
+
+ });
+
+ $app->get('/admin/login', function(){
+
+ 	$page = new PageAdmin([
+ 		"header"=>false,
+ 		"footer"=>false
+ 	]);
+
+ 	$page->setTpl("login");
+ });
+
+ //rota de login
+
+ $app->post('/admin/login', function(){
+
+ 	User::login($_POST["login"], $_POST["password"]);
+
+ 	header("Location: /admin");
+ 	exit;
+ })
 
  $app->run();
 
